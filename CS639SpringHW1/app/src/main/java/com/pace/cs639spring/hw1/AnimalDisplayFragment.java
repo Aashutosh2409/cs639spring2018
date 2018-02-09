@@ -29,7 +29,7 @@ public class AnimalDisplayFragment extends Fragment implements View.OnClickListe
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.animal_display, container, false);
-      //2 mothods
+      //2 methods
         define(view);
         setView();
         return view;
