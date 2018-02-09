@@ -1,9 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-    <TextView
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="3">
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Start editing this file"/>
-</RelativeLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/iBird"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/bird"
+            android:layout_weight="0.3"/>
+
+        <TextView
+            android:id="@+id/tBird"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:text="@string/sbird"
+            android:layout_weight="0.7"
+            android:layout_margin="15dp"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/iCat"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/cat"
+            android:layout_weight="0.3"/>
+
+        <TextView
+            android:id="@+id/tCat"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:text="@string/scat"
+            android:layout_weight="0.7"
+            android:gravity="start|center"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/iDog"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/dog"
+            android:layout_weight="0.3"
+            />
+
+        <TextView
+            android:id="@+id/tDog"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            android:gravity="start|center"
+            android:text="@string/sdog"
+            android:visibility="gone"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

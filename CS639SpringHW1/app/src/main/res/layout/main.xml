@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    class="com.pace.cs639spring.hw1.AnimalDisplayFragment"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent">
+
+    <fragment
+        android:id="@+id/box"
+        class="com.pace.cs639spring.hw1.AnimalDisplayFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layout" />
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/green1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@android:color/holo_green_dark"></View>
+
+        <View
+            android:id="@+id/red1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@android:color/holo_red_dark"></View>
+
+        <View
+            android:id="@+id/blue1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@android:color/holo_blue_dark"></View>
+
+        <View
+            android:id="@+id/orange1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@android:color/holo_orange_dark"></View>
+
+        <View
+            android:id="@+id/purple1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@android:color/holo_purple"></View>
+
+    </LinearLayout>
+</RelativeLayout>

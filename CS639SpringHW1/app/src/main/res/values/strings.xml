@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CS639SpringHW1</string>
+    <string name="sbird">This is Bird</string>
+    <string name="scat">This is Cat</string>
+    <string name="sdog">This is Dog</string>
+    <string name="fragment_animal">Animal</string>
+    <string name="b">Please select a animal</string>
+    <string name="tb">Application Started</string>
 </resources>
