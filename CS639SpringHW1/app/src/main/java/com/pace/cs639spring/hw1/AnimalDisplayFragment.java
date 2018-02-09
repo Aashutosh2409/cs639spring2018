@@ -17,8 +17,8 @@ import android.widget.Toast;
  */
 
 public class AnimalDisplayFragment extends Fragment implements View.OnClickListener {
-    //instance of View and Text part
-    private ImageView biView,ciView,diView;
+    //instance of animal: view and text part
+    private ImageView biView, ciView, diView;
     private TextView biText, ciText, diText;
     //pointer to store the event action number.
     int pointer = -1;
@@ -29,23 +29,26 @@ public class AnimalDisplayFragment extends Fragment implements View.OnClickListe
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.animal_display, container, false);
-      //2 methods
+
+        //2 methods
         define(view);
         setView();
         return view;
 
     }
 
+    //initialization of animal: views&text to instance variables.
     private void define(View view) {
         biView = view.findViewById(R.id.iBird);
         ciView = view.findViewById(R.id.iCat);
         diView = view.findViewById(R.id.iDog);
 
-        diText=view.findViewById(R.id.tDog);
-        ciText=view.findViewById(R.id.tCat);
-        biText=view.findViewById(R.id.tBird);
+        diText = view.findViewById(R.id.tDog);
+        ciText = view.findViewById(R.id.tCat);
+        biText = view.findViewById(R.id.tBird);
     }
 
+    //Declaration of animal: views&text
     private void setView() {
         biView.setOnClickListener(this);
         ciView.setOnClickListener(this);
@@ -58,6 +61,7 @@ public class AnimalDisplayFragment extends Fragment implements View.OnClickListe
     }
 
     public void colorM(int c) {
+        //initially the pointer value is=-1 so that we can ask user to select the animal.
         if (pointer == -1) {
             Toast.makeText(getActivity(), getString(R.string.b), Toast.LENGTH_SHORT).show();
         } else if (pointer == 1) {
@@ -69,7 +73,7 @@ public class AnimalDisplayFragment extends Fragment implements View.OnClickListe
         }
     }
 
-//selecting on click event and assigning pointer.
+    //selecting on click event and assigning pointer.
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -83,10 +87,11 @@ public class AnimalDisplayFragment extends Fragment implements View.OnClickListe
                 pointer = 3;
                 break;
         }
-        information(); //call of method, to show respective messages.
+        information(); //call of method, to be visible & show respective messages.
     }
 
     private void information() {
+        // For Bird: Text to be visible
         if (pointer == 1) {
             if (biText.getVisibility() == View.GONE) {
                 biText.setVisibility(View.VISIBLE);
@@ -97,7 +102,9 @@ public class AnimalDisplayFragment extends Fragment implements View.OnClickListe
             ciText.setVisibility(View.GONE);
             diText.setVisibility(View.GONE);
 
-        } else if (pointer == 2) {
+        }
+        //For Cat: Text to be visible
+        else if (pointer == 2) {
             biText.setVisibility(View.GONE);
             if (ciText.getVisibility() == View.GONE) {
                 ciText.setVisibility(View.VISIBLE);
@@ -106,7 +113,9 @@ public class AnimalDisplayFragment extends Fragment implements View.OnClickListe
                 ciText.setVisibility(View.GONE);
             }
             diText.setVisibility(View.GONE);
-        } else if (pointer == 3) {
+        }
+        //For Dog: Text to be visible
+        else if (pointer == 3) {
             biText.setVisibility(View.GONE);
             ciText.setVisibility(View.GONE);
             if (diText.getVisibility() == View.GONE) {

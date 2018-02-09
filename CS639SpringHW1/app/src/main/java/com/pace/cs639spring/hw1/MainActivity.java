@@ -16,15 +16,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
+        //instance of colors and view
         setReference();
         setEvents();
-
+        //instance of Fragment
         animalDisplayFragment = new AnimalDisplayFragment();
-        addFrag(R.id.box,animalDisplayFragment,getString(R.string.fragment_animal));
-        Toast.makeText(getApplicationContext(),getString(R.string.tb), Toast.LENGTH_SHORT).show();
+        addFrag(R.id.box, animalDisplayFragment, getString(R.string.fragment_animal));
+        //Welcome Message when the application is created.
+        Toast.makeText(getApplicationContext(), getString(R.string.tb), Toast.LENGTH_SHORT).show();
     }
 
+    //initialization of colors to instant variables.
     private void setReference() {
         vPurple = findViewById(R.id.purple1);
         vOrange = findViewById(R.id.orange1);
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //defination of each view
     private void setEvents() {
         vBlue.setOnClickListener(this);
         vGreen.setOnClickListener(this);
@@ -42,12 +45,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         vPurple.setOnClickListener(this);
     }
 
-    protected void addFrag(int containerViewId,Fragment fragment,String fTag)
-    {
-    getSupportFragmentManager().beginTransaction().add(containerViewId, fragment, fTag).disallowAddToBackStack().commit();
+    protected void addFrag(int containerViewId, Fragment fragment, String fTag) {
+        getSupportFragmentManager().beginTransaction().add(containerViewId, fragment, fTag).disallowAddToBackStack().commit();
     }
 
     @Override
+    //onClick event, we color the animal with selected color.
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.purple1:

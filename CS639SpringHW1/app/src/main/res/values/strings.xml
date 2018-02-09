@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">CS639SpringHW1</string>
-    <string name="sbird">This is Bird</string>
-    <string name="scat">This is Cat</string>
-    <string name="sdog">This is Dog</string>
+    <string name="sbird">This is Bird.Birds (Aves) are a group of endothermic vertebrates, characterised by feathers, toothless beaked jaws, the laying of hard-shelled eggs, a high metabolic rate, a four-chambered heart, and a strong yet lightweight skeleton. Birds live worldwide and range in size from the 5 cm (2 in) bee hummingbird to the 2.75 m (9 ft) ostrich. </string>
+    <string name="scat">This is Cat.The domestic cat (Felis silvestris catus or Felis catus) is a small, typically furry, carnivorous mammal. They are often called house cats when kept as indoor pets or simply cats when there is no need to distinguish them from other felids and felines. They are often valued by humans for companionship and for their ability to hunt vermin. </string>
+    <string name="sdog">This is Dog. The domestic dog (Canis lupus familiaris or Canis familiaris) is a member of the genus Canis (canines), which forms part of the wolf-like canids, and is the most widely abundant terrestrial carnivore.The dog and the extant gray wolf are sister taxa as modern wolves are not closely related to the wolves that were first domesticated, which implies that the direct ancestor of the dog is extinct.</string>
     <string name="fragment_animal">Animal</string>
-    <string name="b">Please select a animal</string>
-    <string name="tb">Application Started</string>
+    <string name="b">Please select an Animal</string>
+    <string name="tb">Application Started!!</string>
 </resources>
