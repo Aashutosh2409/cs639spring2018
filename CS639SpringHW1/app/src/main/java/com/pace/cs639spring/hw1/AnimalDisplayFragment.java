@@ -1,130 +1,104 @@
 package com.pace.cs639spring.hw1;
 
+import android.app.Fragment;
 import android.graphics.PorterDuff;
-import android.support.v4.app.Fragment;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 /**
  * Created by kachi on 1/31/18.
- * Modified by Aashutosh
  */
 
-public class AnimalDisplayFragment extends Fragment implements View.OnClickListener {
-    //instance of animal: view and text part
-    private ImageView biView, ciView, diView;
-    private TextView biText, ciText, diText;
-    //pointer to store the event action number.
-    int pointer = -1;
+public class AnimalDisplayFragment extends Fragment {
 
+    //member variables that are going to be accessed often throughout program
+    ImageView mSelectedImage;
+    View mBirdDescription;
+    View mCatDescription;
+    View mDogDescription;
 
     @Nullable
     @Override
-
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        //inflate animal_display.xml
         View view = inflater.inflate(R.layout.animal_display, container, false);
-
-        //2 methods
-        define(view);
-        setView();
-        return view;
-
+        //find the views that are going to be accessed often only once in onCreateView
+        //assign those views to member variables so we can reference them as many times as we want later on
+        mBirdDescription = view.findViewById(R.id.bird_description);
+        mCatDescription = view.findViewById(R.id.cat_description);
+        mDogDescription = view.findViewById(R.id.dog_description);
+        return view; //return the view that we inflated. It's going to be used as the main view of this fragment
     }
 
-    //initialization of animal: views&text to instance variables.
-    private void define(View view) {
-        biView = view.findViewById(R.id.iBird);
-        ciView = view.findViewById(R.id.iCat);
-        diView = view.findViewById(R.id.iDog);
-
-        diText = view.findViewById(R.id.tDog);
-        ciText = view.findViewById(R.id.tCat);
-        biText = view.findViewById(R.id.tBird);
-    }
-
-    //Declaration of animal: views&text
-    private void setView() {
-        biView.setOnClickListener(this);
-        ciView.setOnClickListener(this);
-        diView.setOnClickListener(this);
-
-        biText.setOnClickListener(this);
-        ciText.setOnClickListener(this);
-        ciText.setOnClickListener(this);
-
-    }
-
-    public void colorM(int c) {
-        //initially the pointer value is=-1 so that we can ask user to select the animal.
-        if (pointer == -1) {
-            Toast.makeText(getActivity(), getString(R.string.b), Toast.LENGTH_SHORT).show();
-        } else if (pointer == 1) {
-            biView.setColorFilter(c, PorterDuff.Mode.SRC_IN);
-        } else if (pointer == 2) {
-            ciView.setColorFilter(c, PorterDuff.Mode.SRC_IN);
-        } else if (pointer == 3) {
-            diView.setColorFilter(c, PorterDuff.Mode.SRC_IN);
-        }
-    }
-
-    //selecting on click event and assigning pointer.
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.iBird:
-                pointer = 1;
-                break;
-            case R.id.iCat:
-                pointer = 2;
-                break;
-            case R.id.iDog:
-                pointer = 3;
-                break;
-        }
-        information(); //call of method, to be visible & show respective messages.
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        //once activity is created, lets attach the listeners.
+        addImageClickListeners();
+        addColorClickListeners();
     }
 
-    private void information() {
-        // For Bird: Text to be visible
-        if (pointer == 1) {
-            if (biText.getVisibility() == View.GONE) {
-                biText.setVisibility(View.VISIBLE);
-            } else {
-                pointer = -1;
-                biText.setVisibility(View.GONE);
+    private void addImageClickListeners() {
+        /**
+         * Create an anonymous inner class that'll be used for our onClickListener.
+         * See: https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html
+         * Also: https://stackoverflow.com/questions/355167/how-are-anonymous-inner-classes-used-in-java
+         */
+        View.OnClickListener imageListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //more information on ternary operator: https://www.sitepoint.com/java-ternary-operator/
+                mSelectedImage = mSelectedImage == view ? null : (ImageView) view;
+                int selectedImageId = mSelectedImage == null ? 0 : mSelectedImage.getId();
+                //show the animal description if the animal's image id = selectedImageId. If not, hide it.
+                mBirdDescription.setVisibility(selectedImageId == R.id.bird ? View.VISIBLE : View.INVISIBLE);
+                mCatDescription.setVisibility(selectedImageId == R.id.cat ? View.VISIBLE : View.INVISIBLE);
+                mDogDescription.setVisibility(selectedImageId == R.id.dog ? View.VISIBLE : View.INVISIBLE);
             }
-            ciText.setVisibility(View.GONE);
-            diText.setVisibility(View.GONE);
+        };
 
-        }
-        //For Cat: Text to be visible
-        else if (pointer == 2) {
-            biText.setVisibility(View.GONE);
-            if (ciText.getVisibility() == View.GONE) {
-                ciText.setVisibility(View.VISIBLE);
-            } else {
-                pointer = -1;
-                ciText.setVisibility(View.GONE);
-            }
-            diText.setVisibility(View.GONE);
-        }
-        //For Dog: Text to be visible
-        else if (pointer == 3) {
-            biText.setVisibility(View.GONE);
-            ciText.setVisibility(View.GONE);
-            if (diText.getVisibility() == View.GONE) {
-                diText.setVisibility(View.VISIBLE);
-            } else {
-                pointer = -1;
-                diText.setVisibility(View.GONE);
-            }
+        //add above listener to animal images
+        getView().findViewById(R.id.bird).setOnClickListener(imageListener);
+        getView().findViewById(R.id.cat).setOnClickListener(imageListener);
+        getView().findViewById(R.id.dog).setOnClickListener(imageListener);
+    }
 
-        }
+    private void addColorClickListeners() {
+        /**
+         * Create an anonymous inner class that'll be used for our onClickListener.
+         * See: https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html
+         * Also: https://stackoverflow.com/questions/355167/how-are-anonymous-inner-classes-used-in-java
+         */
+        View.OnClickListener colorListener = new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                //if mSelectedImage == null, it means that no image is selected. Tell user to select an image
+                if (mSelectedImage == null) {
+                    Toast.makeText(getActivity(), R.string.please_select_an_animal_image_before_choosing_a_color,
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }
+                //extract color from the view that we clicked on. Since the background of the view
+                //was just a color value in XML, Android converts it to a ColorDrawable
+                //cast the background to a ColorDrawable, extract the color from the Drawable, and
+                //then assign that color to the animal
+                int viewBackgroundColor = ((ColorDrawable)view.getBackground()).getColor();
+                mSelectedImage.setColorFilter(viewBackgroundColor, PorterDuff.Mode.SRC_IN);
+            }
+        };
+
+        //add above listener to views that'll be used for color picker
+        getView().findViewById(R.id.red).setOnClickListener(colorListener);
+        getView().findViewById(R.id.orange).setOnClickListener(colorListener);
+        getView().findViewById(R.id.green).setOnClickListener(colorListener);
+        getView().findViewById(R.id.blue).setOnClickListener(colorListener);
+        getView().findViewById(R.id.yellow).setOnClickListener(colorListener);
     }
 }
