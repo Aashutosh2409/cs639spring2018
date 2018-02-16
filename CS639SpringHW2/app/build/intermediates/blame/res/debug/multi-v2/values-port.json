@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/aashutoshsingh/Desktop/Android_Project/color/cs639spring2018/CS639SpringHW2/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "/Users/aashutoshsingh/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/bee5ce6dc92067a178daf9d5b43d4fca/res/values-port/values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

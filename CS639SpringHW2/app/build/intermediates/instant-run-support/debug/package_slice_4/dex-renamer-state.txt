@@ -1,0 +1,4 @@
+#Fri Feb 16 17:16:01 EST 2018
+base.0=/Users/aashutoshsingh/Desktop/Android_Project/color/cs639spring2018/CS639SpringHW2/app/build/intermediates/transforms/dexMerger/debug/5
+path.0=classes.dex
+renamed.0=classes.dex
