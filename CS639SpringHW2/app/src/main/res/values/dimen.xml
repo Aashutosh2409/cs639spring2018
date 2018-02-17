@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="animal_button_height">110dp</dimen>
+    <dimen name="animal_button_width">110dp</dimen>
+    <dimen name="vertical_margin">10dp</dimen>
+    <dimen name="text_margin">15dp</dimen>
+    <dimen name="button_height">40dp</dimen>
+    <dimen name="button_width">40dp</dimen>
+    <dimen name="margin_left">5dp</dimen>
+
+</resources>

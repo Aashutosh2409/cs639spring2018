@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">CS639SpringHW2</string>
+    <string name="dog">This is Dog. Add interesting facts to this.</string>
+    <string name="cat">This is Cat. Add interesting facts to this.</string>
+    <string name="bird">This is Bird. Add interesting facts to this.</string>
+    <string name="scorpio">This is Scorpio. Add interesting facts to this.</string>
+    <string name="horse">This is Horse. Add interesting facts to this.</string>
+    <string name="fish">This is Fish. Add interesting facts to this.</string>
+    <string name="snake">This is Snake. Add interesting facts to this.</string>
+    <string name="lizard">This is Lizard. Add interesting facts to this.</string>
+    <string name="dino">This is Dino. Add interesting facts to this.</string>
+    <string name="duck">This is Duck. Add interesting facts to this.</string>
+
+    <string name="image_not_selected">Please Select Any Image</string>
+    <string name="desc_not_added">Please Add the description</string>
+    <string name="no_desc_to_show">Only one description present</string>
+    <string name="no_desc_to_delete">You Can not delete Description at least one description required</string>
+
+    <string name="add_button">Add</string>
+    <string name="next_button">Next</string>
+    <string name="delete_button">Delete</string>
 </resources>
